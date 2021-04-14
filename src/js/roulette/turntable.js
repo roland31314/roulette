@@ -4,18 +4,23 @@ function turntable() {
   canvas.setAttribute("height", "500");
 
   let ctx = canvas.getContext("2d");
-  let data = [1, 2, 3, 1.5, 1, 1];
-  let colors = ["#7E3817", "#C35817", "#EE9A4D", "#A0C544", "#348017", "#307D7E"];
+  let data = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+  let colors = ["#f1aa38", "#dcf138", "#38f14e"];
   let center = [canvas.width / 2, canvas.height / 2];
   let radius = Math.min(canvas.width, canvas.height) / 2;
   let last_position = 0, total = 0, go_to_position = 0;
-  let item = ["鹽水雞", "健康便當", "8-1便當", "好佳麵館", "池上便當", "蒜泥白肉"];
+  let item = [
+    "鹽水雞", "健康便當", "滷味", "自助餐",
+    "8-1便當", "好佳麵館", "蒜泥白肉", "建宏雞肉飯",
+    "燴飯+雙蛋煎", "台南虱目魚", "九月茶餐廳", "鎮源麵攤",
+    "黃記魯肉飯", "燒臘便當"
+  ];
   let text_pedding = [30, 10];
 
   for (let i in data) { total += data[i]; }
   for (let i = 0; i < data.length; i++) {
     //轉盤色塊
-    ctx.fillStyle = colors[i];
+    ctx.fillStyle = colors[i % 3];
     ctx.beginPath();
     ctx.moveTo(center[0], center[1]);
 
@@ -28,7 +33,7 @@ function turntable() {
 
 
     //轉盤文字
-    ctx.fillStyle = "#FFFFFF";
+    ctx.fillStyle = "#333333";
     ctx.translate(center[0], center[1])
     ctx.rotate(go_to_position - (Math.PI * (data[i] / total)))
     ctx.translate(radius - text_pedding[0], text_pedding[1])
