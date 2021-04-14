@@ -1,10 +1,10 @@
 function rotate() {
-  var body = document.querySelector("body");
-  var go_btn = document.querySelector("#go-btn");
-  var turntable = document.querySelector("#turntable");
-  var timeID;
-  var rotate_count = 0;
-  var ROTATE_STRENGTH = 20;
+  let body = document.querySelector("body");
+  let go_btn = document.querySelector("#go-btn");
+  let turntable = document.querySelector("#turntable");
+  let timeID;
+  let rotate_count = 0;
+  let ROTATE_STRENGTH = 20;
   
   go_btn.addEventListener("mousedown", StartRotate);
   body.addEventListener("mouseup", stopRotate);
@@ -23,7 +23,6 @@ function rotate() {
 
   function setRotateDeg(deg) {
     turntable.style.transform = `rotate(${rotate_count}deg)`;
-    console.log(rotate_count)
   }
 }
 

@@ -1,19 +1,19 @@
 function turntable() {
-  var canvas = document.querySelector("#turntable canvas");
+  let canvas = document.querySelector("#turntable canvas");
   canvas.setAttribute("width", "500");
   canvas.setAttribute("height", "500");
 
-  var ctx = canvas.getContext("2d");
-  var data = [1, 2, 3, 1.5, 1, 1];
-  var colors = ["#7E3817", "#C35817", "#EE9A4D", "#A0C544", "#348017", "#307D7E"];
-  var center = [canvas.width / 2, canvas.height / 2];
-  var radius = Math.min(canvas.width, canvas.height) / 2;
-  var last_position = 0, total = 0, go_to_position = 0;
-  var item = ["鹽水雞", "健康便當", "8-1便當", "好佳麵館", "池上便當", "蒜泥白肉"];
-  var text_pedding = [30, 10];
+  let ctx = canvas.getContext("2d");
+  let data = [1, 2, 3, 1.5, 1, 1];
+  let colors = ["#7E3817", "#C35817", "#EE9A4D", "#A0C544", "#348017", "#307D7E"];
+  let center = [canvas.width / 2, canvas.height / 2];
+  let radius = Math.min(canvas.width, canvas.height) / 2;
+  let last_position = 0, total = 0, go_to_position = 0;
+  let item = ["鹽水雞", "健康便當", "8-1便當", "好佳麵館", "池上便當", "蒜泥白肉"];
+  let text_pedding = [30, 10];
 
-  for (var i in data) { total += data[i]; }
-  for (var i = 0; i < data.length; i++) {
+  for (let i in data) { total += data[i]; }
+  for (let i = 0; i < data.length; i++) {
     //轉盤色塊
     ctx.fillStyle = colors[i];
     ctx.beginPath();
