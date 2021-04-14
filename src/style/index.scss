@@ -4,10 +4,27 @@
 html,body {
   height: 100%;
   font-family: "Noto Sans CJK TC Regular";
+  background: #eee;
 }
 
-body {
+main {
+  height: 100%;
+  padding-top: 50px;
+  display: flex;
+  align-items: stretch;
+}
+
+section {
+  background: white;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+  border-radius: 20px;
+}
+
+#roulette-container {
+  height: 80%;
+  min-width: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
 }
