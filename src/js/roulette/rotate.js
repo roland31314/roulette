@@ -3,7 +3,7 @@ function rotate() {
   let go_btn = document.querySelector("#go-btn");
   let turntable = document.querySelector("#turntable");
   let timeID;
-  let rotate_count = 0;
+  let rotate_count = 5;
   let ROTATE_STRENGTH = 20;
   
   go_btn.addEventListener("mousedown", StartRotate);
