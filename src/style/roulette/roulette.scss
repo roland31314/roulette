@@ -1,0 +1,55 @@
+#roulette {
+  width: 500px;
+  height: 500px;
+  position: relative;
+
+  #turntable {
+    width: 500px;
+    height: 500px;
+    background: gray;
+    border-radius: 50%;
+    transition: transform 2.5s;
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+    canvas{
+      width: 500px;
+      height: 500px;
+    }
+  }
+
+  #go-btn {
+    background: red;
+    color: white;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    user-select: none;
+
+    &:hover {
+      background: #ff4343;
+    }
+  }
+
+  #pointer {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 25px 50px 25px 0;
+    border-color: transparent #ff0000 transparent transparent;
+  }
+}

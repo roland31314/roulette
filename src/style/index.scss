@@ -1,0 +1,13 @@
+@import './reset.scss';
+@import './roulette/roulette.scss';
+
+html,body {
+  height: 100%;
+  font-family: "Noto Sans CJK TC Regular";
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
