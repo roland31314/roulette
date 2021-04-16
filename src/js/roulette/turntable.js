@@ -7,6 +7,10 @@ function turntable() {
 
 function update(roulette) {
   const roulette_data = roulette.data[roulette.index].list
+  const title_el = document.querySelector("#roulette-title")
+
+  title_el.innerText = roulette.data[roulette.index].title
+
   let canvas = document.querySelector("#turntable canvas");
   let ctx = canvas.getContext("2d");
   canvas.setAttribute("width", "500");
