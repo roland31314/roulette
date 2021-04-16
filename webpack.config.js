@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  devtool: process.env.NODE_ENV !== "production" ? "inline-source-map" : false,
   entry: {
     app: path.resolve(__dirname, "./src/app.js"),
   },
