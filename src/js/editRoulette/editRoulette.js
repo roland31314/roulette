@@ -1,4 +1,4 @@
-import { getData } from "Store/rouletteStore.js";
+import editRouletteForm from "./editRouletteForm.js";
 
 function editRoulette() {
   let edit_roulette_container = document.querySelector("#edit-roulette-container");
@@ -7,6 +7,8 @@ function editRoulette() {
 
   edit_btn.addEventListener("click", editBtnOnClick);
   close_btn.addEventListener("click", closeBtnOnClick);
+
+  editRouletteForm()
 
   function editBtnOnClick(){
     edit_roulette_container.classList.add("open")
@@ -18,7 +20,5 @@ function editRoulette() {
     edit_roulette_container.classList.remove("container")
   }
 }
-
-console.log(getData());
 
 export default editRoulette
