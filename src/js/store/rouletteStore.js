@@ -1,6 +1,8 @@
 import cloneDeep from "lodash/cloneDeep"
+const ROULETTLE_KEY = "roulette"
+const local_data = JSON.parse(localStorage.getItem("roulette"))
 
-let roulette_data = {
+let roulette_data = local_data || {
   index : 1,
   data  : [
     {
@@ -43,6 +45,7 @@ export function getData() {
 export function setData(data) {
   roulette_data = cloneDeep(data)
   onChangeFunc(data)
+  localStorage.setItem(ROULETTLE_KEY, JSON.stringify(data))
 }
 
 export function onChange(func) {
