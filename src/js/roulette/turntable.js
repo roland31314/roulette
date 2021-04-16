@@ -48,4 +48,4 @@ function turntable() {
   }
 }
 
-turntable();
+export default turntable;

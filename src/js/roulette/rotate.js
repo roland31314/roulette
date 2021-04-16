@@ -26,4 +26,4 @@ function rotate() {
   }
 }
 
-rotate();
+export default rotate

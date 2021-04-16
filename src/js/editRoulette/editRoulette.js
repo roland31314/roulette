@@ -21,4 +21,4 @@ function editRoulette() {
 
 console.log(getData());
 
-editRoulette()
+export default editRoulette
