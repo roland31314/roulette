@@ -18,3 +18,31 @@ h1, h2, h3, h4, h5 {
   -o-transition: none !important;
   transition: none !important;
 }
+
+input {
+  height: 30px;
+  width: 100%;
+  display: block;
+  border-width: 0 0 1px 0;
+
+  &:disabled {
+    color: $black;
+    background-color: initial;
+    border: none;
+  }
+
+  &:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+  }
+}
+
+select {
+  width: 100%;
+  height: 30px;
+  border-width: 0 0 1px 0;
+  background: transparent;
+
+  &:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px;
+  }
+}

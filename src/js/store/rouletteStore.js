@@ -1,4 +1,6 @@
-const defalut_data = {
+import cloneDeep from "lodash/cloneDeep"
+
+let roulette_data = {
   index : 1,
   data  : [
     {
@@ -32,9 +34,18 @@ const defalut_data = {
   ],
 }
 
+let onChangeFunc = () => {}
+
 export function getData() {
-  return defalut_data
+  return roulette_data
 } 
 
+export function setData(data) {
+  roulette_data = cloneDeep(data)
+  onChangeFunc(data)
+}
 
+export function onChange(func) {
+  onChangeFunc = func
+}
 
