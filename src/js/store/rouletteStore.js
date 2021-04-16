@@ -30,7 +30,8 @@ let roulette_data = local_data || {
         { name: "火腿蛋", weight: 1 },
         { name: "蔥抓餅", weight: 1 },
         { name: "炒飯", weight: 1 },
-        { name: "薯餅蛋", weight: 1 },
+        { name: "薯餅蛋餅", weight: 1 },
+        { name: "肉鬆蛋餅蛋", weight: 1 },
       ],
     }
   ],
