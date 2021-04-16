@@ -46,6 +46,11 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  resolve: {
+    alias: {
+      Store: path.resolve(__dirname, './src/js/store'),
+    },
+  },
   devServer: {
     contentBase: path.join(__dirname, "build"),
     compress: true,

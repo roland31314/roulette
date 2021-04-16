@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>自訂輪盤</title>
   </head>
-  <body>
+  <body class="preload">
     <main>
       <section id="roulette-container" class="container">
         <h2>今晚吃什麼</h2>
@@ -18,12 +18,53 @@
         </div>
       </section>
       <aside id="edit-roulette-container">
-        <div id="edit-icon">
-          <i class="fas fa-cog fa-2x"></i>
-        </div>
         <section>
-          
+          <div class="choose-roulette">
+            <div class="title-containter">
+              <h3 class="title">選擇輪盤</h3>
+              <div id="add-roulette" class="add-btn">
+                <i class="fas fa-plus"></i>
+                <span>新建輪盤</span>
+              </div>
+            </div>
+            <select id="select-roulette">
+              <option>aaa</option>
+            </select>
+          </div>
+
+          <div class="items-container">
+            <div class="title-containter">
+              <h3 class="title">輪盤項目</h3>
+              <div id="add-item" class="add-btn">
+                <i class="fas fa-plus"></i>
+                <span>新增項目</span>
+              </div>
+            </div>
+
+            <div class="item-title item-align">
+              <span>名稱</span>
+              <span>權重</span>
+              <span>&nbsp;</span>
+            </div>
+            <ul class="items">
+              <li class="item-align">
+                <input value="鹽水雞" disabled/>
+                <input value="1" type="number" disabled/>
+                <i class="fas fa-trash"></i>
+              </li>
+              <li class="item-align"><input value="鹽水雞" disabled/><input value="1" disabled/><i class="fas fa-trash"></i></li>
+            </ul>
+          </div>
         </section>
+
+        <div class="icon-container">
+          <div id="edit-icon" class="icon">
+            <i class="fas fa-cog fa-2x"></i>
+          </div>
+          <div id="close-icon" class="icon">
+            <i class="fas fa-check fa-2x"></i>
+          </div>
+        </div>
       </aside>
     </main>
   </body>

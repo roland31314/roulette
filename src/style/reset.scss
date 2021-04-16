@@ -10,3 +10,11 @@ h1, h2, h3, h4, h5 {
 * {
   box-sizing: border-box;
 }
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
