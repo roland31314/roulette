@@ -9,16 +9,19 @@ function rotate() {
   go_btn.addEventListener("mousedown", StartRotate);
   body.addEventListener("mouseup", stopRotate);
 
-  function StartRotate() {
-    turntable.style.transition = "";
+  function StartRotate(e) {
+    if (timeID !== undefined) return
+
+    turntable.style.transition = ""
     timeID = setInterval(() => {
       rotate_count += ROTATE_STRENGTH
       setRotateDeg(rotate_count)
     }, 16)
   }
 
-  function stopRotate() {
-    window.clearInterval(timeID)    
+  function stopRotate(e) {
+    window.clearInterval(timeID)
+    timeID = undefined
   }
 
   function setRotateDeg(deg) {
