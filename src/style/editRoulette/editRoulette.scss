@@ -49,13 +49,13 @@ aside {
         display: none;
       }
 
-      #select-or-input {
+      .select-or-input {
         .select-roulette-container {
           display: none;
         }
 
-        input {
-          display: block;
+        .input-roulette-container {
+          display: flex;
         }
       }
     }
@@ -100,27 +100,36 @@ aside {
     .choose-roulette {
       padding-bottom: 20px;
 
-      #select-or-input{
-        .select-roulette-container{
-          display: flex;
-          align-items: center;
+      .select-or-input > div {
+        display: flex;
+        align-items: center;
 
-          select {
-            flex: 7;
-            margin-right: 10px;
-          }
-          i {
-            flex: 1;
-            color: $red;
-            text-align: center;
-            cursor: pointer;
-          }
+        select, input {
+          flex: 7;
+          margin-right: 10px;
         }
 
-        input{
-          display: none;
+        i {
+          flex: 1;
+          color: $red;
+          text-align: center;
+          cursor: pointer;
         }
-      } 
+      }
+
+      .select-or-input> .select-roulette-container {
+        i {
+          color: $red;
+        }
+      }
+
+      .select-or-input > .input-roulette-container {
+        display: none;
+
+        i {
+          color: $green;
+        }
+      }
     }
 
     .items-container {

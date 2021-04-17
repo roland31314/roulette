@@ -7,6 +7,7 @@ const title_el = root_el.querySelector(".title-containter .title")
 const input_roulette = root_el.querySelector("#input-roulette")
 const select_roulette_el = root_el.querySelector("#select-roulette")
 const input_roulette_el = root_el.querySelector("#input-roulette")
+const input_roulette_btn_el = root_el.querySelector("#input-roulette-btn")
 let roulette_data = cloneDeep(getData())
 
 export function editRouletteFormInit() {
@@ -15,6 +16,7 @@ export function editRouletteFormInit() {
   const del_toulette_btn = root_el.querySelector("#del-roulette-btn")
 
   add_roulette_btn.onclick = addRoulette
+  input_roulette_btn_el.onclick = refreshForm
   del_toulette_btn.onclick = removeRoulette
   add_item_btn.onclick = addItem
 
