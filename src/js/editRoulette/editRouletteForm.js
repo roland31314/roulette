@@ -6,13 +6,13 @@ const root_el = document.querySelector("#edit-roulette-container")
 const title_el = root_el.querySelector(".title-containter .title")
 const input_roulette = root_el.querySelector("#input-roulette")
 const select_roulette_el = root_el.querySelector("#select-roulette")
+const input_roulette_el = root_el.querySelector("#input-roulette")
 let roulette_data = cloneDeep(getData())
 
 export function editRouletteFormInit() {
   const add_roulette_btn = root_el.querySelector("#add-roulette-btn")
   const add_item_btn = root_el.querySelector("#add-item-btn")
   const del_toulette_btn = root_el.querySelector("#del-roulette-btn")
-  const input_roulette_el = root_el.querySelector("#input-roulette")
 
   add_roulette_btn.onclick = addRoulette
   del_toulette_btn.onclick = removeRoulette
@@ -26,6 +26,7 @@ export function editRouletteFormInit() {
 
 function addRoulette() {
   title_el.innerText = "新增輪盤"
+  input_roulette_el.value = ""
   root_el.classList.add("add-roulette")
 
   roulette_data.index = roulette_data.data.length
@@ -48,6 +49,11 @@ function removeRoulette() {
 
 function addItem() {
   roulette_data.data[roulette_data.index].list.push({ name: "", weight: 1 })
+  updateRouletteList(roulette_data.index)
+}
+
+function removeItem(index) {
+  roulette_data.data[roulette_data.index].list.splice(index, 1)
   updateRouletteList(roulette_data.index)
 }
 
@@ -105,6 +111,7 @@ function RouletteItem(index, name, weight) {
   input_weight_el.onmouseup = () => { setList(index, "weight", parseInt(input_weight_el.value)) }
 
   del_icon_el.className = "fas fa-trash"
+  del_icon_el.onclick = removeItem.bind(this, index)
 
   li_el.className = "item-align"
   li_el.appendChild(input_name_el)
