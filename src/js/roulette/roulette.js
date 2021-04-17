@@ -2,8 +2,8 @@ import rotate from "./rotate.js"
 import turntable from "./turntable.js"
 
 function roulette() {
-  rotate();
-  turntable();
+  rotate()
+  turntable()
 }
 
 export default roulette

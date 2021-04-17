@@ -1,12 +1,12 @@
-import { editRouletteFormInit, refreshForm } from "./editRouletteForm.js";
+import { editRouletteFormInit, refreshForm } from "./editRouletteForm.js"
 
 function editRoulette() {
-  let edit_roulette_container = document.querySelector("#edit-roulette-container");
-  let edit_btn = document.querySelector("#edit-icon");
-  let close_btn = document.querySelector("#close-icon");
+  let edit_roulette_container = document.querySelector("#edit-roulette-container")
+  let edit_btn = document.querySelector("#edit-icon")
+  let close_btn = document.querySelector("#close-icon")
 
-  edit_btn.addEventListener("click", editBtnOnClick);
-  close_btn.addEventListener("click", closeBtnOnClick);
+  edit_btn.addEventListener("click", editBtnOnClick)
+  close_btn.addEventListener("click", closeBtnOnClick)
 
   editRouletteFormInit()
 

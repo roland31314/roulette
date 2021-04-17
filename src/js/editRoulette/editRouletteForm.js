@@ -91,7 +91,7 @@ function updateRouletteList(index) {
     
     for (let i = 0; i < list.length; i++) {
       let { name, weight } = list[i]
-      const roulette_item = new RouletteItem(i, name, weight);
+      const roulette_item = new RouletteItem(i, name, weight)
       list_el.appendChild(roulette_item)
     }
   }
