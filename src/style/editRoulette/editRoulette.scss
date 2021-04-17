@@ -21,7 +21,7 @@ aside {
     display: none;
   }
 
-  &.open{
+  &.open {
     width: 400px;
     margin-left: 20px;
     padding-right: 0;
@@ -40,6 +40,23 @@ aside {
 
     #close-icon {
       display: flex;
+    }
+  }
+
+  &.add-roulette {
+    .choose-roulette {
+      #add-roulette-btn{
+        display: none;
+      }
+
+      #select-or-input {
+        select {
+          display: none;
+        }
+        input {
+          display: block;
+        }
+      }
     }
   }
 
@@ -81,6 +98,10 @@ aside {
 
     .choose-roulette {
       padding-bottom: 20px;
+
+      #select-or-input input{
+        display: none;
+      }
     }
 
     .items-container {

@@ -3,12 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <title>自訂輪盤</title>
+    <title>輪盤</title>
   </head>
   <body class="preload">
     <main>
       <section id="roulette-container" class="container">
-        <h2 id="roulette-title">今晚吃什麼</h2>
+        <h2 id="roulette-title"></h2>
         <div id="roulette">
           <div id="turntable">
             <canvas />
@@ -22,18 +22,21 @@
           <div class="choose-roulette">
             <div class="title-containter">
               <h3 class="title">選擇輪盤</h3>
-              <div id="add-roulette" class="add-btn">
+              <div id="add-roulette-btn" class="add-btn">
                 <i class="fas fa-plus"></i>
                 <span>新增輪盤</span>
               </div>
             </div>
-            <select id="select-roulette"></select>
+            <div id="select-or-input">
+              <select id="select-roulette"></select>
+              <input id="input-roulette" placeholder="輸入輪盤名稱">
+            </div>
           </div>
 
           <div class="items-container">
             <div class="title-containter">
               <h3 class="title">輪盤項目</h3>
-              <div id="add-item" class="add-btn">
+              <div id="add-item-btn" class="add-btn">
                 <i class="fas fa-plus"></i>
                 <span>新增項目</span>
               </div>
