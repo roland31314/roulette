@@ -55,6 +55,9 @@ function RouletteItem(index, name, weight) {
 
   input_weight_el.value = parseInt(weight)
   input_weight_el.type = "number"
+  input_weight_el.min = "1"
+  input_weight_el.onkeyup = () => { setList(index, "weight", parseInt(input_weight_el.value)) }
+  input_weight_el.onmouseup = () => { setList(index, "weight", parseInt(input_weight_el.value)) }
 
   del_icon_el.className = "fas fa-trash"
 
