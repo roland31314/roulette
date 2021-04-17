@@ -31,12 +31,13 @@ function addRoulette() {
 
   roulette_data.index = roulette_data.data.length
   roulette_data.data.push({ 
-    title : "",
-    list: [{ name: "", weight: 1 }, { name: "", weight: 1 }],
+    title : "?_?",
+    list: [{ name: "項目1", weight: 1 }, { name: "項目2", weight: 1 }, { name: "項目3", weight: 1 }],
   })
 
   updateRuoletteOptions()
   updateRouletteList(roulette_data.index)
+  saveFormData()
 }
 
 function removeRoulette() {
@@ -45,16 +46,19 @@ function removeRoulette() {
 
   updateRuoletteOptions()
   updateRouletteList(roulette_data.index)
+  saveFormData()
 }
 
 function addItem() {
   roulette_data.data[roulette_data.index].list.push({ name: "", weight: 1 })
   updateRouletteList(roulette_data.index)
+  saveFormData()
 }
 
 function removeItem(index) {
   roulette_data.data[roulette_data.index].list.splice(index, 1)
   updateRouletteList(roulette_data.index)
+  saveFormData()
 }
 
 function updateRuoletteOptions() {
@@ -72,12 +76,8 @@ function updateRuoletteOptions() {
     var index = parseInt(e.target.value)
     roulette_data.index = index
     updateRouletteList(index)
-    setData(roulette_data)
+    saveFormData()
   };
-}
-
-function appendRouletteOption(title, value){
-  
 }
 
 function updateRouletteList(index) {
@@ -123,21 +123,25 @@ function RouletteItem(index, name, weight) {
 
 function setTitle(title) {
   roulette_data.data[roulette_data.index].title = title
+  saveFormData()
 }
 
 function setList(index, key, val){
   roulette_data.data[roulette_data.index].list[index][key] = val
+  saveFormData()
 }
 
-export function saveFormData() {
-  if(root_el.classList.contains("add-roulette")) {
+function saveFormData() {
+  if (!isEqual(roulette_data, getData())) {
+    setData(roulette_data)
+  }
+}
+
+export function refreshForm(){
+  if (root_el.classList.contains("add-roulette")) {
     root_el.classList.remove("add-roulette")
     title_el.innerText = "選擇輪盤"
 
     updateRuoletteOptions()
-  }
-
-  if (!isEqual(roulette_data, getData())){
-    setData(roulette_data)
   }
 }
