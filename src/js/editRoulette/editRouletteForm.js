@@ -5,20 +5,22 @@ import isEqual from "lodash/isEqual"
 const root_el = document.querySelector("#edit-roulette-container")
 const title_el = root_el.querySelector(".title-containter .title")
 const input_roulette = root_el.querySelector("#input-roulette")
-const select_roulette_el = root_el.querySelector("#edit-roulette-container #select-roulette")
+const select_roulette_el = root_el.querySelector("#select-roulette")
 let roulette_data = cloneDeep(getData())
 
 export function editRouletteFormInit() {
-  const add_roulette_btn = root_el.querySelector("#edit-roulette-container #add-roulette-btn")
-  const add_item_btn = root_el.querySelector("#edit-roulette-container #add-item-btn")
-  const input_roulette_el = root_el.querySelector("#edit-roulette-container #input-roulette")
+  const add_roulette_btn = root_el.querySelector("#add-roulette-btn")
+  const add_item_btn = root_el.querySelector("#add-item-btn")
+  const del_toulette_btn = root_el.querySelector("#del-roulette-btn")
+  const input_roulette_el = root_el.querySelector("#input-roulette")
 
   add_roulette_btn.onclick = addRoulette
+  del_toulette_btn.onclick = removeRoulette
   add_item_btn.onclick = addItem
 
   input_roulette_el.onkeyup = () => { setTitle(input_roulette_el.value) }
 
-  creatRuoletteOptions()
+  updateRuoletteOptions()
   updateRouletteList(parseInt(roulette_data.index))
 }
 
@@ -31,8 +33,16 @@ function addRoulette() {
     title : "",
     list: [{ name: "", weight: 1 }, { name: "", weight: 1 }],
   })
-  appendRouletteOption("", roulette_data.index)
-  select_roulette_el.value = roulette_data.index
+
+  updateRuoletteOptions()
+  updateRouletteList(roulette_data.index)
+}
+
+function removeRoulette() {
+  roulette_data.data.splice(roulette_data.index, 1)
+  roulette_data.index = roulette_data.data.length - 1
+
+  updateRuoletteOptions()
   updateRouletteList(roulette_data.index)
 }
 
@@ -41,11 +51,14 @@ function addItem() {
   updateRouletteList(roulette_data.index)
 }
 
-function creatRuoletteOptions() {
+function updateRuoletteOptions() {
   select_roulette_el.innerHTML = ""
 
   for (let i = 0; i < roulette_data.data.length; i++) {
-    appendRouletteOption(roulette_data.data[i].title, i)
+    const option_el = document.createElement('option')
+    option_el.innerText = roulette_data.data[i].title
+    option_el.value = i
+    select_roulette_el.appendChild(option_el)
   }
   select_roulette_el.value = roulette_data.index
 
@@ -58,14 +71,11 @@ function creatRuoletteOptions() {
 }
 
 function appendRouletteOption(title, value){
-  const option_el = document.createElement('option')
-  option_el.innerText = title
-  option_el.value = value
-  select_roulette_el.appendChild(option_el)
+  
 }
 
 function updateRouletteList(index) {
-  const list_el = root_el.querySelector("#edit-roulette-container ul.items")
+  const list_el = root_el.querySelector("ul.items")
   list_el.innerHTML = ""
 
   if (typeof index == "number") {
@@ -117,7 +127,7 @@ export function saveFormData() {
     root_el.classList.remove("add-roulette")
     title_el.innerText = "選擇輪盤"
 
-    creatRuoletteOptions()
+    updateRuoletteOptions()
   }
 
   if (!isEqual(roulette_data, getData())){
