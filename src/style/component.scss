@@ -1,0 +1,40 @@
+.primary-color-btn {
+  background: $primary;
+  color: $white;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background: $light-primary;
+  }
+  &:active {
+    background: $light-primary;
+  }
+}
+
+.primary-color-btn {
+  background: $primary;
+  color: $white;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background: $light-primary;
+  }
+  &:active {
+    background: $light-primary;
+  }
+}
+
+.primary-color-btn2 {
+  color: $primary;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    color: $light-primary;
+  }
+  &:active {
+    color: $light-primary;
+  }
+}

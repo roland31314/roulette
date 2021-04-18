@@ -5,6 +5,7 @@ html, body, ol, ul {
 
 h1, h2, h3, h4, h5 {
   margin: 0;
+  color: $black;
 }
 
 * {
@@ -20,6 +21,7 @@ input {
   width: 100%;
   display: block;
   border-width: 0 0 1px 0;
+  border-radius: 0;
 
   &:disabled {
     color: $black;
@@ -28,7 +30,7 @@ input {
   }
 
   &:focus-visible {
-    outline: -webkit-focus-ring-color auto 0px;
+    outline: none;
   }
 }
 
@@ -37,8 +39,9 @@ select {
   height: 30px;
   border-width: 0 0 1px 0;
   background: transparent;
+  border-radius: 0;
 
-  &:focus-visible {
-    outline: -webkit-focus-ring-color auto 0px;
+  &:focus-visible, &:focus{
+    outline: none;
   }
 }

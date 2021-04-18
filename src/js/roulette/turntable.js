@@ -26,7 +26,7 @@ function update(roulette) {
   canvas.setAttribute("width", root_el.offsetWidth)
   canvas.setAttribute("height", root_el.offsetWidth)
 
-  const colors = ["#f1aa38", "#dcf138", "#38f14e"]
+  const colors = ["#eeeeee", "#ffa000"]
   const center = [canvas.width / 2, canvas.height / 2]
   const radius = Math.min(canvas.width, canvas.height) / 2
   const scale = root_el.offsetWidth / 500
@@ -38,7 +38,7 @@ function update(roulette) {
   for (let i = 0; i < roulette_data.length; i++) {
     const { name, weight } = roulette_data[i]
     //轉盤色塊
-    ctx.fillStyle = colors[i % 3]
+    ctx.fillStyle = colors[i % 2]
     ctx.beginPath()
     ctx.moveTo(center[0], center[1])
 

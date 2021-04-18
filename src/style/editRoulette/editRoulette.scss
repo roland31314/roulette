@@ -73,9 +73,9 @@ aside {
   .icon-container {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 
     .icon {
-      cursor: pointer;
       border-radius: 50%;
       width: 56px;
       height: 56px;
@@ -83,6 +83,12 @@ aside {
       align-items: center;
       justify-content: center;
       @extend .icon-shadow;
+    }
+
+    #edit-icon{
+      &:hover i{
+        animation:spin 4s linear infinite;
+      }
     }
   }
 
@@ -97,9 +103,6 @@ aside {
       padding-bottom: 10px;
 
       .add-btn {
-        cursor: pointer;
-        color: $blue;
-        
         i {
           padding-right: 5px;
         }
@@ -169,11 +172,6 @@ aside {
             @extend .del-btn;
           }
         }
-      }
-      
-      #add-item {
-        cursor: pointer;
-        color: $blue;
       }
     }
 

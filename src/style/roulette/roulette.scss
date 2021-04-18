@@ -9,6 +9,11 @@
   flex-direction: column;
   overflow: hidden;
 
+  * {
+    -webkit-touch-callout:none;
+    user-select:none;
+  }
+
   #roulette-title{
     height: 36px;
   }
@@ -26,8 +31,6 @@
     }
 
     #go-btn {
-      background: red;
-      color: white;
       width: 60px;
       height: 60px;
       line-height: 60px;
@@ -35,7 +38,6 @@
       font-size: 30px;
       font-weight: bold;
       border-radius: 50%;
-      cursor: pointer;
       position: absolute;
       margin: auto;
       left: 0;
@@ -43,18 +45,9 @@
       top: 0;
       bottom: 0;
       z-index: 1;
-      -webkit-touch-callout:none;
-      -webkit-user-select:none;
-      -khtml-user-select:none;
-      -moz-user-select:none;
-      -ms-user-select:none;
-      user-select:none;
       -webkit-tap-highlight-color:rgba(0,0,0,0);
       -webkit-transform: translate3d(0,0,0);
-
-      &:hover {
-        background: #ff4343;
-      }
+      transition: all 0.5s;
     }
 
     #pointer {
@@ -66,7 +59,7 @@
       height: 0;
       border-style: solid;
       border-width: 25px 50px 25px 0;
-      border-color: transparent #ff0000 transparent transparent;
+      border-color: transparent $light-primary transparent transparent;
     }
   }
 }

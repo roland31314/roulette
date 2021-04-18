@@ -1,6 +1,8 @@
 @import "./color.scss";
 @import "./reset.scss";
 @import "./device.scss";
+@import "./component.scss";
+@import "./animation.scss";
 @import "./roulette/roulette.scss";
 @import "./editRoulette/editRoulette.scss";
 
@@ -17,7 +19,7 @@ html,body {
   }
 
   .container {
-    background: $white;
+    background: $section-white;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
     border-radius: 20px;
     height: 650px;
