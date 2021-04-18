@@ -21,6 +21,7 @@ export function editRouletteFormInit() {
   add_item_btn.onclick = addItem
 
   input_roulette_el.onkeyup = () => { setTitle(input_roulette_el.value) }
+  input_roulette_el.onchange = () => { setTitle(input_roulette_el.value) }
 
   updateRuoletteOptions()
   updateRouletteList(parseInt(roulette_data.index))
@@ -105,6 +106,7 @@ function RouletteItem(index, name, weight) {
 
   input_name_el.value = name
   input_name_el.onkeyup = () => { setList(index, "name", input_name_el.value) }
+  input_name_el.onchange = () => { setList(index, "name", input_name_el.value) }
 
   input_weight_el.value = parseInt(weight)
   input_weight_el.type = "number"
@@ -145,5 +147,6 @@ export function refreshForm(){
     title_el.innerText = "選擇輪盤"
 
     updateRuoletteOptions()
+    saveFormData()
   }
 }
