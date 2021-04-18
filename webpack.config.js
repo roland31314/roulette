@@ -27,6 +27,9 @@ module.exports = {
             },
           },
           {
+            loader: "postcss-loader",
+          },
+          {
             loader: "sass-loader",
             options: {
               sourceMap: process.env.NODE_ENV !== "production",
