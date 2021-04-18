@@ -16,20 +16,22 @@ window.onresize = () => {
 function update(roulette) {
   const roulette_data = roulette.data[roulette.index].list
   const title_el = document.querySelector("#roulette-title")
+  const width = Math.min(root_el.offsetWidth, 500)
+  const height = Math.min(root_el.offsetWidth, 500)
 
+  turntable_el.style.width = `${width}px`
+  turntable_el.style.height = `${height}px`
   title_el.innerText = roulette.data[roulette.index].title
-  turntable_el.style.width = `${root_el.offsetWidth}px`
-  turntable_el.style.height = `${root_el.offsetWidth}px`
 
   const canvas = root_el.querySelector("canvas")
   const ctx = canvas.getContext("2d")
-  canvas.setAttribute("width", root_el.offsetWidth)
-  canvas.setAttribute("height", root_el.offsetWidth)
+  canvas.setAttribute("width", width)
+  canvas.setAttribute("height", height)
 
   const colors = ["#eeeeee", "#ffa000"]
   const center = [canvas.width / 2, canvas.height / 2]
   const radius = Math.min(canvas.width, canvas.height) / 2
-  const scale = root_el.offsetWidth / 500
+  const scale = width / 500
   const font_size = 30 * scale
   const text_pedding = [30 * scale, 10 * scale]
   let last_position = 0, total = 0, go_to_position = 0
@@ -57,7 +59,7 @@ function update(roulette) {
 
     ctx.font = `${font_size}px Noto Sans CJK TC Regular`
     ctx.textAlign = "end"
-    ctx.fillText(name, 0, 0, root_el.offsetWidth/4.5)
+    ctx.fillText(name, 0, 0, width/4.5)
     
     ctx.translate(-radius + text_pedding[0], -text_pedding[1])
     ctx.rotate(-go_to_position + (Math.PI * (weight / total)))
