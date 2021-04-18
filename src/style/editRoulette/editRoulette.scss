@@ -194,19 +194,19 @@ aside {
 @media screen and (max-width: $mobile){
   aside {
     position: absolute;
+    z-index: 1;
     right: 20px;
     bottom: 20px;
 
+    &.open {
+      width: 100%;
+      margin: 0;
+      right: 0;
+      bottom: 0px;
 
-     &.open {
-        width: 100%;
-        margin: 0;
-        right: 0;
-        bottom: 0px;
-
-        section {
-          padding-right: 0;
-        }
-     }
+      section {
+        padding-right: 0;
+      }
+    }
   }
 }
