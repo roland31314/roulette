@@ -4,21 +4,22 @@ const root_el = document.querySelector('#roulette')
 const turntable_el = root_el.querySelector("#turntable")
 
 function turntable() {
-  const resizeObserver = new ResizeObserver(() => { 
-    update(getData())
-    turntable_el.style.width = `${root_el.offsetWidth}px`
-    turntable_el.style.height = `${root_el.offsetWidth}px`
-  }).observe(root_el)
-
   update(getData())
   onChange(data => { update(data) })
 }
+
+window.onresize = () => {
+  update(getData())
+}
+
 
 function update(roulette) {
   const roulette_data = roulette.data[roulette.index].list
   const title_el = document.querySelector("#roulette-title")
 
   title_el.innerText = roulette.data[roulette.index].title
+  turntable_el.style.width = `${root_el.offsetWidth}px`
+  turntable_el.style.height = `${root_el.offsetWidth}px`
 
   const canvas = root_el.querySelector("canvas")
   const ctx = canvas.getContext("2d")
