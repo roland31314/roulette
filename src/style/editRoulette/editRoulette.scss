@@ -4,10 +4,19 @@
     0px 1px 18px 0px rgb(0 0 0 / 12%);
 }
 
-aside { 
+.del-btn {
+  color: $red;
+  text-align: center;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+aside {
   border-radius: 50%;
   width: 56px;
   height: 56px;
+  margin-left: 20px;
   overflow: hidden;
   background: $white;
   display: flex;
@@ -111,18 +120,10 @@ aside {
 
         i {
           flex: 1;
-          color: $red;
-          text-align: center;
-          cursor: pointer;
+          @extend .del-btn;
         }
       }
-
-      .select-or-input> .select-roulette-container {
-        i {
-          color: $red;
-        }
-      }
-
+      
       .select-or-input > .input-roulette-container {
         display: none;
 
@@ -165,9 +166,7 @@ aside {
           }
 
           i {
-            color: $red;
-            cursor: pointer;
-            text-align: center;
+            @extend .del-btn;
           }
         }
       }
@@ -190,4 +189,24 @@ aside {
       background: $white;
     }
   } 
+}
+
+@media screen and (max-width: $mobile){
+  aside {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+
+     &.open {
+        width: 100%;
+        margin: 0;
+        right: 0;
+        bottom: 0px;
+
+        section {
+          padding-right: 0;
+        }
+     }
+  }
 }

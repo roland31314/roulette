@@ -1,5 +1,6 @@
 @import "./color.scss";
 @import "./reset.scss";
+@import "./device.scss";
 @import "./roulette/roulette.scss";
 @import "./editRoulette/editRoulette.scss";
 
@@ -7,18 +8,38 @@ html,body {
   height: 100%;
   font-family: "Noto Sans CJK TC Regular";
   background: $bg-gray;
+
+  
+  main {
+    padding: 50px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .container {
+    background: $white;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    border-radius: 20px;
+    height: 650px;
+    padding: 20px;
+  }
 }
 
-main {
-  padding: 50px;
-  display: flex;
-  align-items: flex-end;
-}
+@media screen and (max-width: $mobile){
+  html,body {
+    background: $white;
+    min-width: 320px;
+    
+    main {
+      height: 100%;
+      padding: 0;
+      display: block;
+      position: relative;
+    }
 
-.container {
-  background: $white;
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
-  border-radius: 20px;
-  height: 650px;
-  padding: 20px;
+    .container {
+      box-shadow: initial;
+      height: 100%;
+    }
+  }
 }

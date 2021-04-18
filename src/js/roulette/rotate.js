@@ -7,7 +7,9 @@ function rotate() {
   let ROTATE_STRENGTH = 20
   
   go_btn.addEventListener("mousedown", StartRotate)
+  go_btn.addEventListener("touchstart", StartRotate)
   body.addEventListener("mouseup", stopRotate)
+  body.addEventListener("touchend", stopRotate)
 
   function StartRotate(e) {
     if (timeID !== undefined) return
