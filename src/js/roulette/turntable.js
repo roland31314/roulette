@@ -1,6 +1,15 @@
 import { getData, onChange } from "Store/rouletteStore.js"
 
+const root_el = document.querySelector('#roulette')
+const turntable_el = root_el.querySelector("#turntable")
+
 function turntable() {
+  const resizeObserver = new ResizeObserver(() => { 
+    update(getData())
+    turntable_el.style.width = `${root_el.offsetWidth}px`
+    turntable_el.style.height = `${root_el.offsetWidth}px`
+  }).observe(root_el)
+
   update(getData())
   onChange(data => { update(data) })
 }
@@ -11,16 +20,18 @@ function update(roulette) {
 
   title_el.innerText = roulette.data[roulette.index].title
 
-  let canvas = document.querySelector("#turntable canvas")
-  let ctx = canvas.getContext("2d")
-  canvas.setAttribute("width", "500")
-  canvas.setAttribute("height", "500")
+  const canvas = root_el.querySelector("canvas")
+  const ctx = canvas.getContext("2d")
+  canvas.setAttribute("width", root_el.offsetWidth)
+  canvas.setAttribute("height", root_el.offsetWidth)
 
-  let colors = ["#f1aa38", "#dcf138", "#38f14e"]
-  let center = [canvas.width / 2, canvas.height / 2]
-  let radius = Math.min(canvas.width, canvas.height) / 2
+  const colors = ["#f1aa38", "#dcf138", "#38f14e"]
+  const center = [canvas.width / 2, canvas.height / 2]
+  const radius = Math.min(canvas.width, canvas.height) / 2
+  const scale = root_el.offsetWidth / 500
+  const font_size = 30 * scale
+  const text_pedding = [30 * scale, 10 * scale]
   let last_position = 0, total = 0, go_to_position = 0
-  let text_pedding = [30, 10]
 
   for (let i in roulette_data) { total += roulette_data[i].weight }
   for (let i = 0; i < roulette_data.length; i++) {
@@ -43,9 +54,9 @@ function update(roulette) {
     ctx.rotate(go_to_position - (Math.PI * (weight / total)))
     ctx.translate(radius - text_pedding[0], text_pedding[1])
 
-    ctx.font = "30px Noto Sans CJK TC Regular"
+    ctx.font = `${font_size}px Noto Sans CJK TC Regular`
     ctx.textAlign = "end"
-    ctx.fillText(name, 0, 0)
+    ctx.fillText(name, 0, 0, root_el.offsetWidth/4.5)
     
     ctx.translate(-radius + text_pedding[0], -text_pedding[1])
     ctx.rotate(-go_to_position + (Math.PI * (weight / total)))
