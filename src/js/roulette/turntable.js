@@ -5,7 +5,7 @@ const turntable_el = root_el.querySelector("#turntable")
 
 function turntable() {
   update(getData())
-  onChange(data => { update(data) })
+  onChange(update)
 }
 
 window.onresize = () => {

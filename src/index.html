@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>輪盤</title>
   </head>
+
   <body class="preload">
     <main>
       <section id="roulette-container" class="container">
@@ -17,45 +18,65 @@
           <div id="pointer" />
         </div>
       </section>
+
       <aside id="edit-roulette-container">
-        <section>
-          <div class="choose-roulette">
-            <div class="title-containter">
-              <h3 class="title">選擇輪盤</h3>
-              <div id="add-roulette-btn" class="add-btn primary-color-btn2">
-                <i class="fas fa-plus"></i>
-                <span>新增輪盤</span>
-              </div>
-            </div>
-            <div class="select-or-input">
-              <div class="select-roulette-container">
-                <select id="select-roulette"></select>
-                <i id="del-roulette-btn" class="fas fa-trash"></i>
-              </div>
-              <div class="input-roulette-container">
-                <input id="input-roulette" placeholder="輸入輪盤名稱">
-                <i id="input-roulette-btn" class="fas fa-check"></i>
-              </div>
-            </div>
-          </div>
+        <nav class="menu">
+          <ul>
+            <li class="selected">設定</li>
+            <li>匯出&匯入</li>
+          </ul>
+        </nav>
 
-          <div class="items-container">
-            <div class="title-containter">
-              <h3 class="title">輪盤項目</h3>
-              <div id="add-item-btn" class="add-btn primary-color-btn2">
-                <i class="fas fa-plus"></i>
-                <span>新增項目</span>
+        <div class="section-container">
+          <section class="selected">
+            <div class="choose-roulette">
+              <div class="title-containter">
+                <h3 class="title">選擇輪盤</h3>
+                <div id="add-roulette-btn" class="add-btn primary-color-btn2">
+                  <i class="fas fa-plus"></i>
+                  <span>新增輪盤</span>
+                </div>
+              </div>
+              <div class="select-or-input">
+                <div class="select-roulette-container">
+                  <select id="select-roulette"></select>
+                  <i id="del-roulette-btn" class="fas fa-trash"></i>
+                </div>
+                <div class="input-roulette-container">
+                  <input id="input-roulette" placeholder="輸入輪盤名稱">
+                  <i id="input-roulette-btn" class="fas fa-check"></i>
+                </div>
               </div>
             </div>
 
-            <div class="item-title item-align">
-              <span>名稱</span>
-              <span>權重</span>
-              <span>&nbsp;</span>
+            <div class="items-container">
+              <div class="title-containter">
+                <h3 class="title">輪盤項目</h3>
+                <div id="add-item-btn" class="add-btn primary-color-btn2">
+                  <i class="fas fa-plus"></i>
+                  <span>新增項目</span>
+                </div>
+              </div>
+
+              <div class="item-title item-align">
+                <span>名稱</span>
+                <span>權重</span>
+                <span>&nbsp;</span>
+              </div>
+              <ul class="items"></ul>
             </div>
-            <ul class="items"></ul>
-          </div>
-        </section>
+          </section>
+
+          <section>
+            <h3 class="title">匯出輪盤</h3>
+            <div class="outpute-container">
+              <input id="outpute-roulette-data" disabled>
+              <div id="outpute-roulette-data-btn" class="primary-color-btn2">複製</div>
+            </div>
+            <h3 class="title">匯入輪盤</h3>
+            <input id="input-roulette-data" placeholder="輸入輪盤資料">
+          </section>
+        </div>
 
         <div class="icon-container">
           <div id="edit-icon" class="icon primary-color-btn">

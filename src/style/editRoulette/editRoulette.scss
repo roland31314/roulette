@@ -35,11 +35,15 @@ aside {
     margin-left: 20px;
     padding-right: 0;
 
-    section {
+    nav.menu {
+      opacity: 10;
+      height: 40px;
+    }
+
+    .section-container {
       opacity: 1;
-      height: initial;
-      padding-right: 20px;
-      margin-bottom: 20px;
+      height: 100%;
+      margin: 20px 0;
       transition: opacity 0.5s cubic-bezier(1, 0, 1, 1);
     }
 
@@ -92,101 +96,168 @@ aside {
     }
   }
 
-  section {
+  nav.menu {
     opacity: 0;
     height: 0;
-    overflow: auto;
-
-    .title-containter {
+    overflow: hidden;
+    
+    ul {
+      height: 100%;
       display: flex;
-      justify-content: space-between;
-      padding-bottom: 10px;
+      justify-content: center;
 
-      .add-btn {
-        i {
-          padding-right: 5px;
+      li {
+        width: 150px;
+        cursor: pointer;
+        color: $gray;
+        text-align: center;
+
+        &.selected {
+          color: $dark-primary;
+          border-bottom: solid 2px $dark-primary;
+        }
+
+        &:hover {
+          background-color: $light-gray;
         }
       }
     }
+  }
 
-    .choose-roulette {
-      padding-bottom: 20px;
+  .section-container {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    white-space: nowrap;
 
-      .select-or-input > div {
+    section {
+      width: 0;
+      opacity: 0;
+      height: 100%;
+      display: inline-block;
+      overflow: hidden;
+      transition: all .2s;
+      padding-right: 10px;
+
+      &.selected {
+        width:  100%;
+        opacity: 1;
+        overflow: auto;
+      }
+
+      .title-containter {
         display: flex;
-        align-items: center;
-
-        select, input {
-          flex: 7;
-          margin-right: 10px;
-        }
-
-        i {
-          flex: 1;
-          @extend .del-btn;
-        }
-      }
-      
-      .select-or-input > .input-roulette-container {
-        display: none;
-
-        i {
-          color: $green;
-        }
-      }
-    }
-
-    .items-container {
-      .title {
+        justify-content: space-between;
         padding-bottom: 10px;
-      }
-      
-      .item-align {
-        display: flex;
 
-        * {
-          margin-right: 10px;
-          flex: 1;
-        }
-
-        *:nth-child(1) {
-          flex: 7;
+        .add-btn {
+          i {
+            padding-right: 5px;
+          }
         }
       }
 
-      .item-title {
-        margin-bottom: 5px;
-      }
+      .choose-roulette {
+        padding-bottom: 20px;
 
-      .items {
-        li {
-          height: 30px;
+        .select-or-input > div {
+          display: flex;
           align-items: center;
-          margin-bottom: 3px;
 
-          input {
+          select, input {
+            flex: 7;
             margin-right: 10px;
           }
 
           i {
+            flex: 1;
             @extend .del-btn;
           }
         }
-      }
-    }
+        
+        .select-or-input > .input-roulette-container {
+          display: none;
 
-    #close-btn{
-      border-radius: 50%;
-      width: 56px;
-      height: 56px;
-      overflow: hidden;
-      box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: $white;
-    }
-  } 
+          i {
+            color: $green;
+          }
+        }
+      }
+
+      .items-container {
+        .title {
+          padding-bottom: 10px;
+        }
+        
+        .item-align {
+          display: flex;
+
+          * {
+            margin-right: 10px;
+            flex: 1;
+          }
+
+          *:nth-child(1) {
+            flex: 7;
+          }
+        }
+
+        .item-title {
+          margin-bottom: 5px;
+        }
+
+        .items {
+          li {
+            height: 30px;
+            align-items: center;
+            margin-bottom: 3px;
+
+            input {
+              margin-right: 10px;
+            }
+
+            i {
+              @extend .del-btn;
+            }
+          }
+        }
+      }
+
+      .outpute-container {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        margin: 10px 0 20px;
+
+        input {
+          margin-right: 10px;
+          background-color: $light-gray;
+          flex: 7;
+          padding: 0 10px;
+        }
+
+        #outpute-roulette-data-btn {
+          flex: 1;
+        }
+      }
+
+      #input-roulette-data {
+        margin: 10px 0 20px;
+      }
+
+      #close-btn{
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        overflow: hidden;
+        box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $white;
+      }
+    } 
+  }
 }
 
 @media screen and (max-width: $mobile){

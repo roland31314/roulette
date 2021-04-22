@@ -1,4 +1,6 @@
 import { editRouletteFormInit, refreshForm } from "./editRouletteForm.js"
+import tab from "./tab.js"
+import inputOutpute from "./inputOutpute.js"
 
 function editRoulette() {
   let edit_roulette_container = document.querySelector("#edit-roulette-container")
@@ -9,6 +11,8 @@ function editRoulette() {
   close_btn.addEventListener("click", closeBtnOnClick)
 
   editRouletteFormInit()
+  tab()
+  inputOutpute()
 
   function editBtnOnClick(){
     edit_roulette_container.classList.add("open")

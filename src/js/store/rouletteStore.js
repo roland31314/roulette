@@ -38,7 +38,7 @@ let roulette_data = local_data || {
   ],
 }
 
-let onChangeFunc = () => {}
+let onChangeFuncs =[]
 
 export function getData() {
   return roulette_data
@@ -46,11 +46,11 @@ export function getData() {
 
 export function setData(data) {
   roulette_data = cloneDeep(data)
-  onChangeFunc(data)
+  onChangeFuncs.forEach(func => { func(data) })
   localStorage.setItem(ROULETTLE_KEY, JSON.stringify(data))
 }
 
 export function onChange(func) {
-  onChangeFunc = func
+  onChangeFuncs.push(func)
 }
 
