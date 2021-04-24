@@ -16,7 +16,7 @@ export function editRouletteFormInit() {
   const del_toulette_btn = root_el.querySelector("#del-roulette-btn")
 
   add_roulette_btn.onclick = addRoulette
-  input_roulette_btn_el.onclick = refreshForm
+  input_roulette_btn_el.onclick = addRouletteSuccess
   del_toulette_btn.onclick = removeRoulette
   add_item_btn.onclick = addItem
 
@@ -24,7 +24,7 @@ export function editRouletteFormInit() {
   input_roulette_el.onchange = () => { setTitle(input_roulette_el.value) }
 
   updateRuoletteOptions()
-  updateRouletteList(parseInt(roulette_data.index))
+  updateRouletteList(roulette_data.index)
 }
 
 function addRoulette() {
@@ -141,12 +141,19 @@ function saveFormData() {
   }
 }
 
-export function refreshForm(){
-  if (root_el.classList.contains("add-roulette")) {
-    root_el.classList.remove("add-roulette")
-    title_el.innerText = "選擇輪盤"
+function addRouletteSuccess() {
+  root_el.classList.remove("add-roulette")
+  title_el.innerText = "選擇輪盤"
 
-    updateRuoletteOptions()
-    saveFormData()
-  }
+  saveFormData()
+  refreshForm()
+}
+
+export function refreshForm(){
+  if (root_el.classList.contains("add-roulette"))
+    addRouletteSuccess()
+
+  roulette_data = cloneDeep(getData())
+  updateRuoletteOptions()
+  updateRouletteList(roulette_data.index)
 }
