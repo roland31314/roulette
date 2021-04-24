@@ -129,6 +129,7 @@ aside {
     height: 0;
     overflow: hidden;
     white-space: nowrap;
+    position: relative;
 
     section {
       width: 0;
@@ -143,6 +144,7 @@ aside {
         width:  100%;
         opacity: 1;
         overflow: auto;
+        position: absolute;
       }
 
       .title-containter {
@@ -241,9 +243,10 @@ aside {
         }
       }
 
-      #input-roulette-data {
+      .input-container{
         margin: 10px 0 20px;
       }
+      
 
       #close-btn{
         border-radius: 50%;
