@@ -45,8 +45,9 @@ module.exports = {
       chunkFilename: "[id].css",
     }),
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
+      template  : "./src/index.html",
+      filename  : "index.html",
+      favicon   : "./src/img/roulette16x16.png",
     }),
     new CleanWebpackPlugin(),
   ],
